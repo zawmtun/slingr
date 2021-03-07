@@ -1,8 +1,16 @@
 #' Create project folders
 #'
-#' Create project folders with a minimal structure
+#' Create project folders with a minimal structure:
+#' code - R script files (.R)
+#' data_raw - Raw data from external source
+#' data_derived - Data files generated in the analysis process
+#' figs - Figures and plots
+#' docs - Report files (.Rmd and their derivatives or .docx)
 #'
-#' @param project_path character
+#' In a typical new workflow setup, create a RStudio project folder first. Then,
+#' run this function in R console using the default parameter.
+#'
+#' @param project_path Project folder path.
 #'
 #' @return
 #' @export

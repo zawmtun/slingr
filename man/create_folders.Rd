@@ -7,13 +7,24 @@
 create_folders(project_path = ".")
 }
 \arguments{
-\item{project_path}{character}
+\item{project_path}{Project folder path.}
 }
 \value{
 
 }
 \description{
-Create project folders with a minimal structure
+Create project folders with a minimal structure. See Details.
+}
+\details{
+In a typical new workflow setup, create a RStudio project folder first. Then,
+run this function in R console using the default parameter. \cr
+\cr
+Minimal folder structure: \cr
+code - R script files (.R) \cr
+data_raw - Raw data from external source \cr
+data_derived - Data files generated in the analysis process \cr
+figs - Figures and plots \cr
+docs - Report files (.Rmd and their derivatives or .docx) \cr
 }
 \examples{
 temp_folder <- tempdir()

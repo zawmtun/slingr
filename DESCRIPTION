@@ -1,0 +1,10 @@
+Package: sling.workflow
+Type: Package
+Title: Data analysis workflow tools of SLING lab
+Version: 0.1.0
+Author: Zaw Myo Tun
+Maintainer: Zaw Myo Tun <zawmyotun11@gmail.com>
+Description: This is a collection of functions that facilitates data analysis workflow for lab members.
+License: MIT
+Encoding: UTF-8
+LazyData: true

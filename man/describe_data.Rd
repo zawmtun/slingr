@@ -2,18 +2,33 @@
 % Please edit documentation in R/describe_data.R
 \name{describe_data}
 \alias{describe_data}
-\title{Create a tableby object using {arsenal} package with more intuitive default parameters. The tableby object should be passed to summary() to create a descriptive table.}
+\title{Create a tableby object using {arsenal} package with more intuitive default parameters.}
 \usage{
-describe_data(dat, by = "", p_value = FALSE, total = FALSE, ...)
+describe_data(
+  dat,
+  by = "",
+  p_value = FALSE,
+  total = FALSE,
+  digits = 1L,
+  digits.pct = 1L,
+  digits.p = 4L,
+  ...
+)
 }
 \arguments{
 \item{dat}{A dataframe}
 
-\item{by}{A string with length 1. Name of grouping variable by which data are described. If "" (default), overall total will be shown.}
+\item{by}{A string. Name of grouping variable by which data are described. If "" (default), overall total will be shown.}
 
-\item{p_value}{A logical vector with length 1. Toggle to show p value (default is FALSE).}
+\item{p_value}{A logical. Toggle to show p value (default is FALSE).}
 
-\item{total}{A logical vector with length 1. Toggle to show overall total (default is FALSE) when grouping variable is defined.}
+\item{total}{A logical. Toggle to show overall total (default is FALSE) when grouping variable is defined.}
+
+\item{digits}{An integer. Control the number of decimal place for continuous values (default is 1).}
+
+\item{digits.pct}{An integer. Control the number of decimal place for percents (default is 1).}
+
+\item{digits.p}{An integer. Control the number of decimal place for p-values (default is 1).}
 
 \item{...}{Arguments passed to tableby(). ?tableby for more details.}
 }
@@ -21,16 +36,23 @@ describe_data(dat, by = "", p_value = FALSE, total = FALSE, ...)
 
 }
 \description{
-Create a tableby object using {arsenal} package with more intuitive default parameters. The tableby object should be passed to summary() to create a descriptive table.
+The tableby object should be passed to summary() to create a descriptive table.
 }
 \examples{
 \dontrun{
+library(arsenal)
 library(dplyr)
+
 data(mockstudy)
 
 mockstudy \%>\%
   select(arm, sex, age) \%>\%
   describe_data(by = "arm") \%>\%
   summary(text = TRUE)
+
+mockstudy \%>\%
+  select(arm, sex, age) \%>\%
+  describe_data() \%>\%
+  summary()
 }
 }

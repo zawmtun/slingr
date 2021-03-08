@@ -14,6 +14,7 @@
 #' @param ... Arguments passed to tableby(). ?tableby for more details.
 #'
 #' @return
+#' @import arsenal
 #' @export
 #'
 #' @examples

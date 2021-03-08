@@ -1,11 +1,11 @@
 
-# sling.workflow
+# slingr
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of sling.workflow is to facilitate data analysis workflow of
-the SLING lab projects.
+The goal of slingr is to facilitate data analysis workflow of the SLING
+lab projects.
 
 ## Installation
 
@@ -14,5 +14,5 @@ The package is for internal use only. You can install it from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("zawmtun/sling.workflow")
+devtools::install_github("zawmtun/slingr")
 ```

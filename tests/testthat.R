@@ -1,4 +1,4 @@
 library(testthat)
-library(sling.workflow)
+library(slingr)
 
-test_check("sling.workflow")
+test_check("slingr")

@@ -30,7 +30,7 @@ create_folders <- function(project_path = ".") {
     "docs"
   )
 
-  folders_text <- paste("- ", folders)
+  folders_text <- paste("-", folders)
 
   exist <- dir.exists(file.path(project_path, folders))
   exist_folders <- folders[exist]

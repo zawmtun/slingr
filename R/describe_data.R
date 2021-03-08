@@ -5,12 +5,12 @@
 #' descriptive table.
 #'
 #' @param dat A dataframe
-#' @param by A string. Name of grouping variable by which data are described. If "" (default), overall total will be shown.
+#' @param by Grouping variable by which data are described. If NULL (default), overall total will be shown.
 #' @param p_value A logical. Toggle to show p value (default is FALSE).
 #' @param total A logical. Toggle to show overall total (default is FALSE) when grouping variable is defined.
 #' @param digits An integer. Control the number of decimal place for continuous values (default is 1).
 #' @param digits.pct An integer. Control the number of decimal place for percents (default is 1).
-#' @param digits.p An integer. Control the number of decimal place for p-values (default is 1).
+#' @param digits.pvalue An integer. Control the number of decimal place for p-values (default is 1).
 #' @param ... Arguments passed to tableby(). ?tableby for more details.
 #'
 #' @return
@@ -25,7 +25,7 @@
 #'
 #' mockstudy %>%
 #'   select(arm, sex, age) %>%
-#'   describe_data(by = "arm") %>%
+#'   describe_data(by = arm) %>%
 #'   summary(text = TRUE)
 #'
 #' mockstudy %>%
@@ -34,27 +34,32 @@
 #'   summary()
 #' }
 describe_data <- function(dat,
-                          by = "",
+                          by = NULL,
                           p_value = FALSE,
                           total = FALSE,
                           digits = 1L,
                           digits.pct = 1L,
-                          digits.p = 4L,
+                          digits.pvalue = 4L,
                           ...) {
-  vars <- names(dat)
-  vars <- if (by == "") {
-    paste(vars, collapse = " + ")
+  .args <- as.list(match.call())
+  .by_var <- if (any(names(.args) == "by")) as.character(.args$by) else ""
+  .vars <- names(dat)
+  .vars <- if (.by_var == "") {
+    paste(.vars, collapse = " + ")
   } else {
-    paste(vars[vars != by], collapse = " + ")
+    paste(.vars[.vars != .by_var], collapse = " + ")
   }
 
-  f <- paste(by, vars, sep = " ~ ")
+  .f <- paste(.by_var, .vars, sep = " ~ ")
 
-  tab <- arsenal::tableby(
-    stats::as.formula(f),
+  arsenal::tableby(
+    stats::as.formula(.f),
     data = dat,
     test = p_value,
     total = total,
+    digits = digits,
+    digits.pct = digits.pct,
+    digits.p = digits.pvalue,
     ...
   )
 }

@@ -6,19 +6,19 @@
 \usage{
 describe_data(
   dat,
-  by = "",
+  by = NULL,
   p_value = FALSE,
   total = FALSE,
   digits = 1L,
   digits.pct = 1L,
-  digits.p = 4L,
+  digits.pvalue = 4L,
   ...
 )
 }
 \arguments{
 \item{dat}{A dataframe}
 
-\item{by}{A string. Name of grouping variable by which data are described. If "" (default), overall total will be shown.}
+\item{by}{Grouping variable by which data are described. If NULL (default), overall total will be shown.}
 
 \item{p_value}{A logical. Toggle to show p value (default is FALSE).}
 
@@ -28,7 +28,7 @@ describe_data(
 
 \item{digits.pct}{An integer. Control the number of decimal place for percents (default is 1).}
 
-\item{digits.p}{An integer. Control the number of decimal place for p-values (default is 1).}
+\item{digits.pvalue}{An integer. Control the number of decimal place for p-values (default is 1).}
 
 \item{...}{Arguments passed to tableby(). ?tableby for more details.}
 }
@@ -49,7 +49,7 @@ data(mockstudy)
 
 mockstudy \%>\%
   select(arm, sex, age) \%>\%
-  describe_data(by = "arm") \%>\%
+  describe_data(by = arm) \%>\%
   summary(text = TRUE)
 
 mockstudy \%>\%

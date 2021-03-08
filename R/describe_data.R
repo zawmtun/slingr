@@ -43,14 +43,11 @@ describe_data <- function(dat,
                           ...) {
   .args <- as.list(match.call())
   .by_var <- if (any(names(.args) == "by")) as.character(.args$by) else ""
-  .vars <- names(dat)
-  .vars <- if (.by_var == "") {
-    paste(.vars, collapse = " + ")
+  .f <- if (.by_var == "") {
+    paste("~ .")
   } else {
-    paste(.vars[.vars != .by_var], collapse = " + ")
+    paste(.by_var, ".", sep = " ~ ")
   }
-
-  .f <- paste(.by_var, .vars, sep = " ~ ")
 
   arsenal::tableby(
     stats::as.formula(.f),

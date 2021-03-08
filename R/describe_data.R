@@ -1,6 +1,8 @@
-#' Create a tableby object using {arsenal} package with more intuitive default parameters.
+#' Describe data using {arsenal} package.
 #'
-#' The tableby object should be passed to summary() to create a descriptive table.
+#' This function creates a tableby object using more intuitive default
+#' parameters. The tableby object should be passed to summary() to create a
+#' descriptive table.
 #'
 #' @param dat A dataframe
 #' @param by A string. Name of grouping variable by which data are described. If "" (default), overall total will be shown.

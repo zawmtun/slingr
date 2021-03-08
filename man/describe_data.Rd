@@ -2,7 +2,7 @@
 % Please edit documentation in R/describe_data.R
 \name{describe_data}
 \alias{describe_data}
-\title{Create a tableby object using {arsenal} package with more intuitive default parameters.}
+\title{Describe data using {arsenal} package.}
 \usage{
 describe_data(
   dat,
@@ -36,7 +36,9 @@ describe_data(
 
 }
 \description{
-The tableby object should be passed to summary() to create a descriptive table.
+This function creates a tableby object using more intuitive default
+parameters. The tableby object should be passed to summary() to create a
+descriptive table.
 }
 \examples{
 \dontrun{

@@ -31,14 +31,12 @@ flow_folders <- function(project_path = ".") {
   )
 
   folders_text <- paste("-", folders)
-
   exist <- dir.exists(file.path(project_path, folders))
-  not_exist_folders <- folders[!exist]
 
   # Create folders
   invisible(
     lapply(
-      not_exist_folders,
+      folders[!exist],
       function(folder, p) dir.create(file.path(p, folder)),
       p = project_path
     )

@@ -1,4 +1,4 @@
-#' Describe data using {arsenal} package.
+#' Data function: Describe data using {arsenal} package.
 #'
 #' This function creates a tableby object using more intuitive default
 #' parameters. The tableby object should be passed to summary() to create a
@@ -25,15 +25,15 @@
 #'
 #' mockstudy %>%
 #'   select(arm, sex, age) %>%
-#'   describe_data(by = arm) %>%
+#'   data_describe(by = arm) %>%
 #'   summary(text = TRUE)
 #'
 #' mockstudy %>%
 #'   select(arm, sex, age) %>%
-#'   describe_data() %>%
+#'   data_describe() %>%
 #'   summary()
 #' }
-describe_data <- function(dat,
+data_describe <- function(dat,
                           by = NULL,
                           p_value = FALSE,
                           total = FALSE,

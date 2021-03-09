@@ -1,4 +1,4 @@
-#' Create project folders
+#' Workflow function: Create project folders
 #'
 #' Create project folders with a minimal structure. See Details.
 #'
@@ -19,9 +19,9 @@
 #'
 #' @examples
 #' temp_folder <- tempdir()
-#' create_folders(temp_folder)
+#' flow_folders(temp_folder)
 #' list.dirs(temp_folder)
-create_folders <- function(project_path = ".") {
+flow_folders <- function(project_path = ".") {
   folders <- c(
     "code",
     "data_raw",

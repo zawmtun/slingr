@@ -41,9 +41,9 @@ data_describe <- function(dat,
                           digits.pct = 1L,
                           digits.pvalue = 4L,
                           ...) {
-  .args <- as.list(match.call())
-  .by_var <- if (any(names(.args) == "by")) as.character(.args$by) else ""
-  .f <- if (.by_var == "") "~ ." else paste(.by_var, ".", sep = " ~ ")
+  .by_var <- rlang::enexpr(by)
+  .by_var <- if (is.null(.by_var)) "" else rlang::as_name(.by_var)
+  .f <- paste(.by_var, ".", sep = " ~ ")
 
   arsenal::tableby(
     stats::as.formula(.f),

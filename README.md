@@ -4,8 +4,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of slingr is to facilitate data analysis workflow of the SLING
-lab projects.
+The goal of {slingr} is to facilitate data analysis workflow of the
+[SLING lab](https://blog.nus.edu.sg/singaporesling/) projects.
 
 ## Installation
 

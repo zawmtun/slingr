@@ -9,9 +9,6 @@ flow_folders(project_path = ".")
 \arguments{
 \item{project_path}{Project folder path.}
 }
-\value{
-
-}
 \description{
 Create project folders with a minimal structure. See Details.
 }

@@ -13,8 +13,6 @@
 #' docs - Report files (.Rmd and their derivatives or .docx) \cr
 #'
 #' @param project_path Project folder path.
-#'
-#' @return
 #' @export
 #'
 #' @examples

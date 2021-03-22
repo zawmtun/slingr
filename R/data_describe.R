@@ -1,10 +1,10 @@
-#' Data function: Describe data using {arsenal} package.
+#' Data function: Describe data using tableby() from {arsenal} package.
 #'
 #' This function creates a tableby object using more intuitive default
 #' parameters. The tableby object should be passed to summary() to create a
 #' descriptive table.
 #'
-#' @param dat A dataframe
+#' @param .data A dataframe
 #' @param by Grouping variable by which data are described. If NULL (default), overall total will be shown.
 #' @param p_value A logical. Toggle to show p value (default is FALSE).
 #' @param total A logical. Toggle to show overall total (default is FALSE) when grouping variable is defined.
@@ -13,7 +13,7 @@
 #' @param digits.pvalue An integer. Control the number of decimal place for p-values (default is 1).
 #' @param ... Arguments passed to tableby(). ?tableby for more details.
 #'
-#' @return
+#' @return A tableby object
 #' @export
 #'
 #' @examples
@@ -33,7 +33,7 @@
 #'   data_describe() %>%
 #'   summary()
 #' }
-data_describe <- function(dat,
+data_describe <- function(.data,
                           by = NULL,
                           p_value = FALSE,
                           total = FALSE,
@@ -47,7 +47,7 @@ data_describe <- function(dat,
 
   arsenal::tableby(
     stats::as.formula(.f),
-    data = dat,
+    data = .data,
     test = p_value,
     total = total,
     digits = digits,

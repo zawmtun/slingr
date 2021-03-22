@@ -2,10 +2,10 @@
 % Please edit documentation in R/data_describe.R
 \name{data_describe}
 \alias{data_describe}
-\title{Data function: Describe data using {arsenal} package.}
+\title{Data function: Describe data using tableby() from {arsenal} package.}
 \usage{
 data_describe(
-  dat,
+  .data,
   by = NULL,
   p_value = FALSE,
   total = FALSE,
@@ -16,7 +16,7 @@ data_describe(
 )
 }
 \arguments{
-\item{dat}{A dataframe}
+\item{.data}{A dataframe}
 
 \item{by}{Grouping variable by which data are described. If NULL (default), overall total will be shown.}
 
@@ -33,7 +33,7 @@ data_describe(
 \item{...}{Arguments passed to tableby(). ?tableby for more details.}
 }
 \value{
-
+A tableby object
 }
 \description{
 This function creates a tableby object using more intuitive default
